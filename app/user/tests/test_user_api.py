@@ -88,7 +88,7 @@ class PublicUserApiTests(TestCase):
         """Test returns error if credentials invaild."""
         create_user(email='test@example.com', password='goodpass')
 
-        payload ={'email':'test@example.com', 'password':'badpass'}
+        payload = {'email': 'test@example.com', 'password': 'badpass'}
         res = self.client.post(TOKEN_URL, payload)
 
         self.assertNotIn('token', res.data)
@@ -96,7 +96,7 @@ class PublicUserApiTests(TestCase):
 
     def test_create_token_blank_password(self):
         """Test posting a blank password return an error."""
-        payload = {'email':'test@example.com', 'password':''}
+        payload = {'email': 'test@example.com', 'password': ''}
         res = self.client.post(TOKEN_URL, payload)
 
         self.assertNotIn('token', res.data)
@@ -139,7 +139,7 @@ class PrivateUserApiTests(TestCase):
 
     def test_update_user_profile(self):
         """Test updating the user profile for the aurhenticated user."""
-        payload = {'name': 'Updated name', 'password':'newpassword123'}
+        payload = {'name': 'Updated name', 'password': 'newpassword123'}
 
         res = self.client.patch(ME_URL, payload)
 
