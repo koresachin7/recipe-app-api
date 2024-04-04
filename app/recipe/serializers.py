@@ -26,7 +26,7 @@ class RecipeDetailSerializer(RecipeSerializer):
 
 
 class TagSerializer(serializers.ModelSerializer):
-    """serializer for tags."""
+    """Serializer for tags."""
 
     class Meta:
         model = Tag

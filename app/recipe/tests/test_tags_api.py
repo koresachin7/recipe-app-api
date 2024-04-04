@@ -1,5 +1,5 @@
 """
-Tests for tags API.
+Tests for the tags API.
 """
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -17,7 +17,7 @@ TAGS_URL = reverse('recipe:tag-list')
 
 
 def create_user(email='user@example.com', password='testpass123'):
-    """Create amd return a user."""
+    """Create and return a user."""
     return get_user_model().objects.create_user(email=email, password=password)
 
 
@@ -43,7 +43,7 @@ class PrivateTagsApiTests(TestCase):
         self.client.force_authenticate(self.user)
 
     def test_retrieve_tags(self):
-        """Test retrieving alist of tags."""
+        """Test retrieving a list of tags."""
         Tag.objects.create(user=self.user, name='Vegan')
         Tag.objects.create(user=self.user, name='Dessert')
 
